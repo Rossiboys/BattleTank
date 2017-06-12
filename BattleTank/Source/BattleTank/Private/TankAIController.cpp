@@ -5,17 +5,6 @@
 #include "Engine/World.h"
 #include "Tank.h"
 
-// Getter Methods
-ATank* ATankAIController::GetControlledTank() const { return Cast<ATank>(GetPawn()); }
-
-ATank* ATankAIController::GetPlayerTank() const
-{
-	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
-	if (!PlayerPawn) { return nullptr; }
-	return Cast<ATank>(PlayerPawn);
-
-}
-
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
@@ -29,4 +18,18 @@ void ATankAIController::BeginPlay()
 	{
 		UE_LOG(LogTemp, Warning, TEXT("AIController found player: %s"), *(PlayerTank->GetName()));
 	}
+}
+
+/// Getter Methods
+ATank* ATankAIController::GetControlledTank() const 
+{ 
+	return Cast<ATank>(GetPawn()); 
+}
+
+ATank* ATankAIController::GetPlayerTank() const
+{
+	auto PlayerPawn = GetWorld()->GetFirstPlayerController()->GetPawn();
+	if (!PlayerPawn) { return nullptr; }
+	return Cast<ATank>(PlayerPawn);
+
 }

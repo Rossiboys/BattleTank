@@ -23,7 +23,7 @@ private: /// Getter Methods ///
 
 public:
 
-	void BeginPlay() override;
+	virtual void BeginPlay() override;
 
 
 
