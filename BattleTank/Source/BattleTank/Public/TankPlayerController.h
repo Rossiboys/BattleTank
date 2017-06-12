@@ -19,5 +19,5 @@ public:
 	/// Getter Methods ///
 	class ATank* GetControlledTank() const;
 	
-	
+	void BeginPlay() override;
 };
